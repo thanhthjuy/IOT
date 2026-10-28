@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Activity History</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">⌁</div>
+          <span>IoT System</span>
+        </div>
+
+        <nav>
+          <a href="dashboard.html" class="menu">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="sensor-data.html" class="menu">
+            <span>▥</span>
+            Sensor Data
+          </a>
+
+          <a href="activity-history.html" class="menu active">
+            <span>◷</span>
+            Activity History
+          </a>
+
+          <a href="profile.html" class="menu">
+            <span>♙</span>
+            Profile
+          </a>
+        </nav>
+
+        <div class="logout" onclick="logout()">
+          ⇥
+          <span>Logout</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="top-header">Activity History</header>
+
+        <section class="content">
+          <!-- FILTER -->
+
+          <div class="filter-box history-filter">
+            <div class="filter-item">
+              <label>Thời gian</label>
+
+              <input type="text" placeholder="Thời gian" />
+            </div>
+
+            <div class="filter-item">
+              <label>Device</label>
+
+              <select>
+                <option>All</option>
+                <option>LED 01</option>
+                <option>LED 02</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label>Action</label>
+
+              <select>
+                <option>All</option>
+                <option>ON</option>
+                <option>OFF</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label>Status</label>
+
+              <select>
+                <option>All</option>
+                <option>SUCCESS</option>
+                <option>LOADING</option>
+                <option>FAILED</option>
+              </select>
+            </div>
+
+            <button class="search-button">Search</button>
+
+            <button class="reset-button">Reset</button>
+          </div>
+
+          <!-- TABLE -->
+
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>User</th>
+                  <th>Device</th>
+                  <th>Action</th>
+                  <th>Status</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:45:22</td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:40:15</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:05:22</td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status loading">LOADING</span></td>
+                  <td>2026-08-18 09:10:00</td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status failed">FAILED</span></td>
+                  <td>2026-08-18 09:15:30</td>
+                </tr>
+
+                <tr>
+                  <td>6</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td>
+                    <span class="action off">OFF</span>
+                  </td>
+                  <td>
+                    <span class="status success">SUCCESS</span>
+                  </td>
+                  <td>2026-08-18 08:20:45</td>
+                </tr>
+
+                <tr>
+                  <td>7</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td>
+                    <span class="action on">ON</span>
+                  </td>
+                  <td>
+                    <span class="status success">SUCCESS</span>
+                  </td>
+                  <td>2026-08-18 08:30:05</td>
+                </tr>
+
+                <tr>
+                  <td>8</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td>
+                    <span class="action off">OFF</span>
+                  </td>
+                  <td>
+                    <span class="status success">SUCCESS</span>
+                  </td>
+                  <td>2026-08-18 07:45:12</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td>
+                    <span class="action on">ON</span>
+                  </td>
+                  <td>
+                    <span class="status loading">LOADING</span>
+                  </td>
+                  <td>2026-08-18 06:10:00</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td>
+                    <span class="action on">ON</span>
+                  </td>
+                  <td>
+                    <span class="status success">SUCCESS</span>
+                  </td>
+                  <td>2026-08-18 06:05:00</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:50:22</td>
+                </tr>
+
+                <tr>
+                  <td>12</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:45:15</td>
+                </tr>
+
+                <tr>
+                  <td>13</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 10:20:22</td>
+                </tr>
+
+                <tr>
+                  <td>14</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status loading">LOADING</span></td>
+                  <td>2026-08-18 09:30:00</td>
+                </tr>
+
+                <tr>
+                  <td>15</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status failed">FAILED</span></td>
+                  <td>2026-08-18 09:25:30</td>
+                </tr>
+
+                <tr>
+                  <td>16</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 08:40:45</td>
+                </tr>
+
+                <tr>
+                  <td>17</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 08:35:05</td>
+                </tr>
+
+                <tr>
+                  <td>18</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 07:55:12</td>
+                </tr>
+
+                <tr>
+                  <td>19</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status loading">LOADING</span></td>
+                  <td>2026-08-18 06:20:00</td>
+                </tr>
+
+                <tr>
+                  <td>20</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 06:15:00</td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 05:30:12</td>
+                </tr>
+
+                <tr>
+                  <td>22</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 05:00:40</td>
+                </tr>
+
+                <tr>
+                  <td>23</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 04:15:22</td>
+                </tr>
+
+                <tr>
+                  <td>24</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 02</td>
+                  <td><span class="action off">OFF</span></td>
+                  <td><span class="status success">SUCCESS</span></td>
+                  <td>2026-08-18 04:10:05</td>
+                </tr>
+
+                <tr>
+                  <td>25</td>
+                  <td><b>Admin</b></td>
+                  <td>LED 01</td>
+                  <td><span class="action on">ON</span></td>
+                  <td><span class="status failed">FAILED</span></td>
+                  <td>2026-08-17 23:45:10</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <div>
+                <button class="page active">1</button>
+                <button class="page">2</button>
+                <button class="page">3</button>
+                <span class="page-dots">...</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

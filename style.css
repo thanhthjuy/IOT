@@ -1,0 +1,1173 @@
+/* =========================================
+   1. THIẾT LẬP CHUNG
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+  background: #f1f4f9;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* =========================================
+   2. SIDEBAR
+========================================= */
+
+.sidebar {
+  width: 290px;
+  height: 100%;
+  background: #1d293b;
+  color: white;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 88px;
+  flex-shrink: 0;
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 19px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #2d67e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+nav {
+  padding: 18px 12px;
+}
+
+.menu {
+  height: 49px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 15px;
+  margin-bottom: 7px;
+  color: #f3f4f6;
+  text-decoration: none;
+  border-radius: 9px;
+  font-size: 17px;
+}
+
+.menu:hover,
+.menu.active {
+  background: #2d67e8;
+}
+
+.menu span {
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.logout {
+  margin-top: auto;
+  padding: 0 27px 28px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #9ca8ba;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* =========================================
+   3. KHUNG NỘI DUNG CHUNG
+========================================= */
+
+.main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top-header {
+  height: 72px;
+  flex-shrink: 0;
+  background: white;
+  border-bottom: 1px solid #dfe3e9;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  height: calc(100% - 72px);
+  padding: 20px 25px;
+  overflow: hidden;
+}
+
+/* =========================================
+   4. THẺ CẢM BIẾN
+========================================= */
+
+.sensor-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sensor-card {
+  min-width: 0;
+  height: 125px;
+  padding: 18px 20px;
+  background: white;
+  border: 1px solid #e0e4ea;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sensor-title {
+  font-size: 16px;
+}
+
+.sensor-subtitle {
+  margin-top: 3px;
+  color: #8a95a5;
+  font-size: 13px;
+}
+
+.sensor-value {
+  margin-top: 14px;
+  font-size: 31px;
+}
+
+.sensor-value small {
+  font-size: 15px;
+}
+
+.sensor-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.sensor-icon.temperature {
+  color: #ff4048;
+  background: #fff0f0;
+}
+
+.sensor-icon.humidity {
+  color: #2d67e8;
+  background: #edf4ff;
+}
+
+.sensor-icon.light {
+  color: #e79200;
+  background: #fff8e7;
+}
+
+/* =========================================
+   5. TIÊU ĐỀ KHU VỰC VÀ BIỂU ĐỒ CŨ
+========================================= */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+
+.section-header h2,
+.section-title {
+  font-size: 17px;
+  margin: 0;
+}
+
+.period {
+  display: flex;
+  gap: 5px;
+}
+
+.period button {
+  border: none;
+  background: transparent;
+  padding: 7px 14px;
+  border-radius: 8px;
+  color: #65738a;
+  cursor: pointer;
+}
+
+.period .selected {
+  background: #2d67e8;
+  color: white;
+  font-weight: bold;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.chart-card {
+  min-width: 0;
+  height: 185px;
+  background: white;
+  border: 1px solid #e0e4ea;
+  border-radius: 14px;
+  padding: 15px 17px;
+}
+
+.chart-title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.dot.red {
+  background: #f0444b;
+}
+
+.dot.blue {
+  background: #2d67e8;
+}
+
+.dot.orange {
+  background: #e47c00;
+}
+
+.chart {
+  height: 135px;
+}
+
+.chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.grid line {
+  stroke: #e8ebef;
+  stroke-dasharray: 3 4;
+}
+
+.line {
+  fill: none;
+  stroke-width: 3;
+}
+
+.red-line {
+  stroke: #ff4048;
+}
+
+.blue-line {
+  stroke: #2d67e8;
+}
+
+.orange-line {
+  stroke: #df7900;
+}
+
+.section-title {
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   6. ĐIỀU KHIỂN LED CHUNG
+========================================= */
+
+.light-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.light-card {
+  min-width: 0;
+  height: 105px;
+  background: white;
+  border: 1px solid #e0e4ea;
+  border-radius: 14px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+}
+
+.bulb {
+  font-size: 35px;
+  color: #9ca3af;
+  opacity: 0.4;
+  filter: grayscale(1);
+  transition: all 0.3s ease;
+}
+
+.bulb.active-bulb {
+  color: #facc15;
+  opacity: 1;
+  filter: grayscale(0);
+  text-shadow: 0 0 15px rgba(250, 204, 21, 0.8);
+}
+
+.light-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.light-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.online {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.online span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #16a34a;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.on {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status.off {
+  background: #f2f3f5;
+  color: #65738a;
+}
+
+.switch {
+  width: 62px;
+  height: 32px;
+  flex-shrink: 0;
+  background: #d0d5dd;
+  border-radius: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switch.on {
+  background: #2d67e8;
+  justify-content: flex-end;
+}
+
+.knob {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px #999;
+}
+
+/* =========================================
+   7. BỘ LỌC DỮ LIỆU
+========================================= */
+
+.filter-box {
+  min-height: 120px;
+  background: white;
+  border: 1px solid #e0e4ea;
+  border-radius: 15px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.filter-item {
+  min-width: 250px;
+}
+
+.filter-item label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 9px;
+  color: #4d5b70;
+}
+
+.filter-item input,
+.filter-item select {
+  width: 100%;
+  height: 46px;
+  border: 1px solid #dfe3e8;
+  background: #f5f6f8;
+  border-radius: 10px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.search-button,
+.reset-button,
+.export-button {
+  height: 46px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-button {
+  background: #2d67e8;
+  color: white;
+}
+
+.reset-button {
+  background: #f0f2f5;
+  color: #596579;
+}
+
+.export-button {
+  margin-left: auto;
+  background: #f4fff8;
+  color: #0a9f48;
+  border: 1px solid #a6edc4;
+}
+
+/* =========================================
+   8. BẢNG DỮ LIỆU
+========================================= */
+
+.table-card {
+  margin-top: 25px;
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #e0e4ea;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 145px);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  flex: 0 0 auto;
+}
+
+.table-card thead {
+  background: #f5f6f8;
+}
+
+.table-card th {
+  height: 45px;
+  text-align: left;
+  padding: 0 20px;
+  color: #536176;
+  font-size: 14px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.table-card tbody {
+  height: auto;
+}
+
+.table-card tr {
+  height: 46px;
+}
+
+.table-card td {
+  height: 46px;
+  padding: 0 20px;
+  border-top: 1px solid #e7e9ed;
+  color: #526074;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+.table-card td b {
+  color: #111827;
+}
+
+/* Chấm màu loại cảm biến */
+
+.sensor-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.sensor-dot.red {
+  background: #f0444b;
+}
+
+.sensor-dot.blue {
+  background: #2d67e8;
+}
+
+.sensor-dot.orange {
+  background: #e47c00;
+}
+
+/* =========================================
+   9. PHÂN TRANG
+========================================= */
+
+.pagination {
+  margin-top: auto;
+  flex-shrink: 0;
+  width: 100%;
+  height: 46px;
+  min-height: 46px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 24px;
+  color: #65738a;
+  border-top: 1px solid #e7e9ed;
+  background: white;
+  box-sizing: border-box;
+}
+
+.pagination > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.page {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  background: #f0f2f5;
+  color: #4d5b70;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.page.active {
+  background: #2d67e8;
+  color: white;
+}
+.page-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 35px;
+  color: #65738a;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+/* =========================================
+   10. LỊCH SỬ HOẠT ĐỘNG
+========================================= */
+
+.history-filter .filter-item {
+  min-width: 160px;
+}
+
+.action {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.action.on {
+  color: #2d67e8;
+  background: #e0edff;
+}
+
+.action.off {
+  color: #65738a;
+  background: #f2f3f5;
+}
+
+.status.success {
+  background: #dcfce7;
+  color: #0a9f48;
+}
+
+.status.loading {
+  background: #fff1bf;
+  color: #d99000;
+}
+
+.status.failed {
+  background: #ffe0e0;
+  color: #f04444;
+}
+
+/* =========================================
+   11. TRANG PROFILE
+========================================= */
+
+.profile-card {
+  width: 700px;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #e1e4e9;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e1e4e9;
+}
+
+.profile-image {
+  width: 98px;
+  height: 98px;
+  flex-shrink: 0;
+  border-radius: 17px;
+  object-fit: cover;
+  margin-right: 25px;
+}
+
+.profile-header h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.username {
+  margin: 0;
+  color: #65738a;
+}
+
+.role {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 11px;
+  background: #e7e9ff;
+  color: #5548ee;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.profile-info {
+  margin-top: 25px;
+}
+
+.info-row {
+  min-height: 54px;
+  background: #f5f6f8;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+}
+
+.info-row span {
+  color: #65738a;
+}
+
+.info-row strong {
+  color: #111827;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.profile-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 28px;
+}
+
+.profile-buttons button {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #dce1e7;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-buttons .edit-profile {
+  color: white;
+  background: #2d67e8;
+  border-color: #2d67e8;
+}
+
+.profile-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.profile-links a {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #2d67e8;
+  background: #f7faff;
+  border: 1px solid #d6e0f5;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* =========================================
+   12. TRANG LOGIN
+========================================= */
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(120deg, #f4f7fb, #edf0ff);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.login-container {
+  width: 472px;
+  max-width: calc(100% - 32px);
+  margin-top: 90px;
+  margin-bottom: 40px;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.wifi-icon {
+  width: 80px;
+  height: 80px;
+  background: #2d67e8;
+  color: white;
+  border-radius: 18px;
+  margin: 0 auto 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.login-header p {
+  color: #60708a;
+  font-size: 18px;
+  margin: 12px 0 42px;
+}
+
+.login-card {
+  background: white;
+  border: 1px solid #e0e3e8;
+  border-radius: 18px;
+  padding: 40px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #dfe3e8;
+  background: #f5f6f8;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 17px;
+  margin-bottom: 17px;
+}
+
+.login-card .remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #65738a;
+  margin-bottom: 17px;
+}
+
+.login-card .remember input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.login-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: #2d67e8;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.demo-text {
+  text-align: center;
+  color: #65738a;
+  margin-top: 25px;
+}
+
+/* =========================================
+   13. DASHBOARD - KHUNG CHÍNH
+========================================= */
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.dashboard-main > .top-header {
+  flex: 0 0 72px;
+}
+
+.dashboard-content {
+  width: 100%;
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 14px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dashboard-content .sensor-cards {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.dashboard-content .sensor-card {
+  width: 100%;
+  min-width: 0;
+  height: 90px;
+  padding: 14px 22px;
+  align-items: center;
+}
+
+.dashboard-content .sensor-title {
+  font-size: 16px;
+}
+
+.dashboard-content .sensor-value {
+  margin-top: 9px;
+  font-size: 27px;
+}
+
+/* =========================================
+   14. DASHBOARD - TIÊU ĐỀ BIỂU ĐỒ
+========================================= */
+
+.dashboard-chart-header,
+.dashboard-content .led-section-header {
+  flex: 0 0 auto;
+  margin: 0;
+  gap: 12px;
+}
+
+.dashboard-chart-header h2,
+.dashboard-content .led-section-header h2 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.chart-subtitle {
+  margin: 4px 0 0;
+  color: #8a95a5;
+  font-size: 12px;
+}
+
+/* Bộ lọc thời gian */
+
+.time-filters {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 9px;
+  background: #f1f4f9;
+  flex-shrink: 0;
+}
+
+.time-btn {
+  border: 0;
+  border-radius: 7px;
+  padding: 7px 12px;
+  background: transparent;
+  color: #65738a;
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.time-btn:hover {
+  color: #2d67e8;
+}
+
+.time-btn.active {
+  color: #2d67e8;
+  background: #fff;
+  box-shadow: 0 1px 4px #00000012;
+  font-weight: 700;
+}
+
+/* =========================================
+   15. DASHBOARD - BA BIỂU ĐỒ
+========================================= */
+
+.dashboard-content .dashboard-charts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  height: 340px;
+  min-height: 0;
+  flex: 0 0 340px;
+}
+
+.dashboard-charts .chart-card {
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 13px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-charts .chart-title {
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.dashboard-charts .chart-current {
+  flex: 0 0 auto;
+  margin-top: 8px;
+  color: #202b3c;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* Khu vực SVG */
+
+.dashboard-charts .dashboard-svg-wrap {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin-top: 4px;
+}
+
+.dashboard-charts .chart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Chú thích giá trị */
+
+.dashboard-charts .chart-footer {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eef1f5;
+  color: #7b8798;
+  font-size: 11px;
+}
+
+/* Đường lưới và nhãn trục */
+
+.dashboard-charts .chart-grid-line {
+  stroke: #e8ebef;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.dashboard-charts .chart-axis-label {
+  fill: #8a95a5;
+  font-size: 10px;
+}
+
+/* Hiệu ứng biểu đồ */
+
+.dashboard-charts .chart-line {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: dashboardLineDraw 1s ease forwards;
+}
+
+.dashboard-charts .chart-point {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dashboardPointIn 0.35s ease both;
+}
+
+@keyframes dashboardLineDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dashboardPointIn {
+  from {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   16. DASHBOARD - ĐIỀU KHIỂN LED
+========================================= */
+
+.dashboard-content .led-section-header {
+  margin-top: 0;
+}
+
+.dashboard-content .device-count {
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #f1f4f9;
+  color: #65738a;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.dashboard-content .dashboard-light-controls {
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.dashboard-light-controls .light-card {
+  width: 100%;
+  min-width: 0;
+  height: 80px;
+  padding: 12px 22px;
+  gap: 16px;
+}
+
+.dashboard-light-controls .bulb {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  margin-right: 0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-light-controls .light-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-light-controls .light-info h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.dashboard-light-controls .switch {
+  margin-left: auto;
+  flex-shrink: 0;
+}

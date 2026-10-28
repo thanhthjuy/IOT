@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">⌁</div>
+          <span>IoT System</span>
+        </div>
+
+        <nav>
+          <a href="dashboard.html" class="menu">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="sensor-data.html" class="menu">
+            <span>▥</span>
+            Sensor Data
+          </a>
+
+          <a href="activity-history.html" class="menu">
+            <span>◷</span>
+            Activity History
+          </a>
+
+          <a href="profile.html" class="menu active">
+            <span>♙</span>
+            Profile
+          </a>
+        </nav>
+
+        <div class="logout" onclick="logout()">
+          ⇥
+          <span>Logout</span>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <header class="top-header">Profile</header>
+
+        <section class="content">
+          <div class="profile-card">
+            <!-- PROFILE HEADER -->
+            <div class="profile-header">
+              <img src="assets/anh.jpg" class="profile-image" alt="Profile" />
+
+              <div>
+                <h1>Đặng Thanh Thúy</h1>
+              </div>
+            </div>
+
+            <!-- INFORMATION -->
+            <div class="profile-info">
+              <div class="info-row">
+                <span>MSV</span>
+                <strong id="profile-msv">B23DCCN807</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Role</span>
+                <strong id="profile-role">Administrator</strong>
+              </div>
+            </div>
+
+            <div class="profile-info">
+              <div class="info-row">
+                <span>GitHub</span>
+                <strong>
+                  <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit GitHub
+                  </a>
+                </strong>
+              </div>
+
+              <div class="info-row">
+                <span>Figma</span>
+                <strong>
+                  <a
+                    href="https://www.figma.com/site/4lzY0W2Pch9tKjbM59Agrg/Untitled?node-id=0-1&t=kIb88r7ozrqRGnHy-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Figma
+                  </a>
+                </strong>
+              </div>
+
+              <div class="info-row">
+                <span>Document</span>
+                <strong>
+                  <a
+                    href="https://www.figma.com/site/4lzY0W2Pch9tKjbM59Agrg/Untitled?node-id=0-1&t=kIb88r7ozrqRGnHy-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Document
+                  </a>
+                </strong>
+              </div>
+            </div>
+            <!-- BUTTONS -->
+            <div class="profile-buttons">
+              <button
+                type="button"
+                class="edit-profile"
+                onclick="editProfile()"
+              >
+                Edit Profile
+              </button>
+
+              <button type="button" onclick="changePassword()">
+                Change Password
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
