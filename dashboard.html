@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>IoT System - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">⌁</div>
+          <span>IoT System</span>
+        </div>
+
+        <nav>
+          <a href="dashboard.html" class="menu active">
+            <span>▦</span>Dashboard
+          </a>
+
+          <a href="sensor-data.html" class="menu">
+            <span>▥</span>Sensor Data
+          </a>
+
+          <a href="activity-history.html" class="menu">
+            <span>◷</span>Activity History
+          </a>
+
+          <a href="profile.html" class="menu"> <span>♙</span>Profile </a>
+        </nav>
+
+        <div class="logout" onclick="logout()">⇥ <span>Logout</span></div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main dashboard-main">
+        <header class="top-header">Dashboard</header>
+
+        <section class="content dashboard-content">
+          <!-- SENSOR SUMMARY CARDS -->
+          <div class="sensor-cards">
+            <div class="sensor-card">
+              <div>
+                <div class="sensor-title">Temperature</div>
+                <div class="sensor-value" id="temperatureSummary">
+                  28.5 <small>°C</small>
+                </div>
+              </div>
+
+              <div class="sensor-icon temperature">♨</div>
+            </div>
+
+            <div class="sensor-card">
+              <div>
+                <div class="sensor-title">Humidity</div>
+                <div class="sensor-value" id="humiditySummary">
+                  72 <small>%</small>
+                </div>
+              </div>
+
+              <div class="sensor-icon humidity">♢</div>
+            </div>
+
+            <div class="sensor-card">
+              <div>
+                <div class="sensor-title">Light</div>
+                <div class="sensor-value" id="lightSummary">
+                  650 <small>ADC</small>
+                </div>
+              </div>
+
+              <div class="sensor-icon light">☼</div>
+            </div>
+          </div>
+
+          <!-- CHART HEADER -->
+          <div class="section-header dashboard-chart-header">
+            <div>
+              <h2>Sensor Data Overview</h2>
+              <p class="chart-subtitle">Monitor your sensor readings</p>
+            </div>
+
+            <div
+              class="time-filters"
+              role="group"
+              aria-label="Select chart time range"
+            >
+              <button
+                type="button"
+                class="time-btn active"
+                data-range="today"
+                aria-pressed="true"
+              >
+                Today
+              </button>
+
+              <button
+                type="button"
+                class="time-btn"
+                data-range="7days"
+                aria-pressed="false"
+              >
+                7 Days
+              </button>
+
+              <button
+                type="button"
+                class="time-btn"
+                data-range="month"
+                aria-pressed="false"
+              >
+                1 Month
+              </button>
+            </div>
+          </div>
+
+          <!-- THREE CHARTS -->
+          <div class="charts dashboard-charts">
+            <!-- TEMPERATURE -->
+            <div class="chart-card">
+              <div class="chart-title">
+                <span>
+                  <i class="dot red"></i>
+                  Temperature
+                </span>
+                <span>°C</span>
+              </div>
+
+              <div class="chart-current" id="temperatureCurrent">28.5 °C</div>
+
+              <div class="chart dashboard-svg-wrap">
+                <svg
+                  id="temperatureChart"
+                  viewBox="0 0 500 210"
+                  preserveAspectRatio="none"
+                  role="img"
+                  aria-label="Temperature chart"
+                ></svg>
+              </div>
+
+              <div class="chart-footer">
+                <span id="temperatureMin">Min --</span>
+                <span id="temperatureMax">Max --</span>
+              </div>
+            </div>
+
+            <!-- HUMIDITY -->
+            <div class="chart-card">
+              <div class="chart-title">
+                <span>
+                  <i class="dot blue"></i>
+                  Humidity
+                </span>
+                <span>%</span>
+              </div>
+
+              <div class="chart-current" id="humidityCurrent">72 %</div>
+
+              <div class="chart dashboard-svg-wrap">
+                <svg
+                  id="humidityChart"
+                  viewBox="0 0 500 210"
+                  preserveAspectRatio="none"
+                  role="img"
+                  aria-label="Humidity chart"
+                ></svg>
+              </div>
+
+              <div class="chart-footer">
+                <span id="humidityMin">Min --</span>
+                <span id="humidityMax">Max --</span>
+              </div>
+            </div>
+
+            <!-- LIGHT -->
+            <div class="chart-card">
+              <div class="chart-title">
+                <span>
+                  <i class="dot orange"></i>
+                  Light
+                </span>
+                <span>ADC</span>
+              </div>
+
+              <div class="chart-current" id="lightCurrent">650 ADC</div>
+
+              <div class="chart dashboard-svg-wrap">
+                <svg
+                  id="lightChart"
+                  viewBox="0 0 500 210"
+                  preserveAspectRatio="none"
+                  role="img"
+                  aria-label="Light chart"
+                ></svg>
+              </div>
+
+              <div class="chart-footer">
+                <span id="lightMin">Min --</span>
+                <span id="lightMax">Max --</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- LED CONTROL HEADER -->
+          <div class="section-header led-section-header">
+            <div>
+              <h2>Light Control</h2>
+              <p class="chart-subtitle">Manage your LED devices</p>
+            </div>
+
+            <span class="device-count">2 Devices</span>
+          </div>
+
+          <!-- LED CONTROLS -->
+          <div class="light-controls dashboard-light-controls">
+            <!-- LED 01 -->
+            <div class="light-card">
+              <div id="bulb1" class="bulb.active-bulb">💡</div>
+
+              <div class="light-info">
+                <h3>LED 01</h3>
+                <div id="led1Status" class="status on">ON</div>
+              </div>
+
+              <div
+                id="led1"
+                class="switch on"
+                onclick="toggleLED(1)"
+                role="button"
+                tabindex="0"
+                aria-label="Toggle LED 01"
+              >
+                <div class="knob"></div>
+              </div>
+            </div>
+
+            <!-- LED 02 -->
+            <div class="light-card">
+              <div id="bulb2" class="bulb.active-bulb">💡</div>
+
+              <div class="light-info">
+                <h3>LED 02</h3>
+                <div id="led2Status" class="status on">ON</div>
+              </div>
+
+              <div
+                id="led2"
+                class="switch on"
+                onclick="toggleLED(2)"
+                role="button"
+                tabindex="0"
+                aria-label="Toggle LED 02"
+              >
+                <div class="knob"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
